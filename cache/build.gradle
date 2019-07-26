@@ -40,10 +40,13 @@ dependencies {
             ERewarderCoreDependencies.kotlin,
 
             ERewarderCacheDependencies.room,
-            ERewarderCacheDependencies.roomRx
+            ERewarderCacheDependencies.roomRx,
+
+            ERewarderDIDependencies.javax
     )
 
     kapt (
-            ERewarderCacheDependencies.roomCompiler
+            ERewarderCacheDependencies.roomCompiler,
+            ERewarderDIDependencies.javaxAnnotation
     )
 }
