@@ -1,7 +1,7 @@
 object ERewarderVersion {
-    const val targetSdkVersion = 29
+    const val targetSdkVersion = 28
     const val compileSdkVersion = 28
-    const val minSdkVersion = 19
+    const val minSdkVersion = 21
 
     const val versionCode = 1
     const val versionName = "1.0"
