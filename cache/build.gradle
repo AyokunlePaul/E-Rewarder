@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion ERewarderVersion.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion ERewarderVersion.minSdkVersion
+        targetSdkVersion ERewarderVersion.targetSdkVersion
+        versionCode ERewarderVersion.versionCode
+        versionName ERewarderVersion.versionName
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.incremental":"true"
+                ]
+            }
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation (
+            fileTree(dir: 'libs', include: ['*.jar']),
+
+            ERewarderCoreDependencies.kotlin,
+
+            ERewarderCacheDependencies.room,
+            ERewarderCacheDependencies.roomRx,
+
+            ERewarderDIDependencies.javax,
+
+            project (":repository")
+    )
+
+    kapt (
+            ERewarderCacheDependencies.roomCompiler,
+            ERewarderDIDependencies.javaxAnnotation
+    )
+}
