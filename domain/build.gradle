@@ -1,8 +1,14 @@
 apply plugin: 'java-library'
+apply plugin: 'kotlin'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation (
+            fileTree(dir: 'libs', include: ['*.jar']),
+
+            ERewarderCoreDependencies.kotlin,
+
+            ERewarderAsyncDependencies.rxJava,
+            ERewarderAsyncDependencies.rxAndroid
+    )
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"

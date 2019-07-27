@@ -42,11 +42,15 @@ dependencies {
 
             ERewarderCacheDependencies.room,
 
+            ERewarderAsyncDependencies.rxJava,
+            ERewarderAsyncDependencies.rxAndroid,
+
             ERewarderDIDependencies.dagger,
             ERewarderDIDependencies.daggerAndroidSupport,
 
             project (":cache"),
-            project (":repository")
+            project (":repository"),
+            project (":domain")
     )
 
     kapt (
