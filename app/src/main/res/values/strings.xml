@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">E-Rewarder</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="new_customer_sign_up_here">New customer? Sign up here</string>
+    <string name="log_in">Log In</string>
 </resources>

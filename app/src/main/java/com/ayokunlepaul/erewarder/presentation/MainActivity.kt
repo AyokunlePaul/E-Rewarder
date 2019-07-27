@@ -1,12 +1,13 @@
 package com.ayokunlepaul.erewarder.presentation
 
 import android.os.Bundle
-import dagger.android.DaggerActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.ayokunlepaul.erewarder.R
 
-class MainActivity: DaggerActivity() {
+class MainActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.activity_main)
     }
 }

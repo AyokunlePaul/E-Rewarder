@@ -4,6 +4,7 @@ import com.ayokunlepaul.erewarder.ERewarderApplication
 import com.ayokunlepaul.erewarder.di.modules.ERewarderUtilityModule
 import com.ayokunlepaul.erewarder.di.modules.cache.CacheModule
 import com.ayokunlepaul.erewarder.di.modules.domain.DomainModule
+import com.ayokunlepaul.erewarder.di.modules.presentation.ERewarderFragmentBinding
 import com.ayokunlepaul.erewarder.di.scopes.ERewarderAppScope
 import dagger.BindsInstance
 import dagger.Component
@@ -15,6 +16,7 @@ import dagger.android.support.DaggerApplication
     modules = [
         AndroidSupportInjectionModule::class,
         ERewarderUtilityModule::class,
+        ERewarderFragmentBinding::class,
         DomainModule::class,
         CacheModule::class
     ]
