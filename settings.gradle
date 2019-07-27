@@ -1,2 +1,2 @@
-include ':app', ':cache', ':repository'
+include ':app', ':cache', ':repository', ':domain'
 rootProject.name='E-Rewarder'
