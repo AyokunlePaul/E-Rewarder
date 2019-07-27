@@ -1,19 +1,18 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.1"
+    compileSdkVersion ERewarderVersion.compileSdkVersion
+
     defaultConfig {
-        applicationId "com.ayokunlepaul.erewarder"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId ERewarderCoreDependencies.applicationId
+        minSdkVersion ERewarderVersion.minSdkVersion
+        targetSdkVersion ERewarderVersion.targetSdkVersion
+        versionCode ERewarderVersion.versionCode
+        versionName ERewarderVersion.versionName
     }
     buildTypes {
         release {
@@ -24,11 +23,35 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation (
+            fileTree(dir: 'libs', include: ['*.jar']),
+
+            ERewarderCoreDependencies.kotlin,
+            ERewarderCoreDependencies.coreKtx,
+            ERewarderCoreDependencies.appCompat,
+            ERewarderCoreDependencies.lifecycle,
+            ERewarderCoreDependencies.navigationUiKtx,
+            ERewarderCoreDependencies.navigationFragmentKtx,
+            ERewarderCoreDependencies.constraintLayout,
+
+            ERewarderViewDependencies.materialComponent,
+            ERewarderViewDependencies.optView,
+
+            ERewarderCacheDependencies.room,
+
+            ERewarderDIDependencies.dagger,
+            ERewarderDIDependencies.daggerAndroidSupport,
+
+            project (":cache"),
+            project (":repository")
+    )
+
+    kapt (
+            ERewarderCoreDependencies.lifecycleCompiler,
+            
+            ERewarderCacheDependencies.roomCompiler,
+
+            ERewarderDIDependencies.daggerCompiler,
+            ERewarderDIDependencies.daggerAndroidProcessor,
+    )
 }

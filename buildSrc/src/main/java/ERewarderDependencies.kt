@@ -22,7 +22,7 @@ object ERewarderVersion {
     const val retrofit = "2.6.0"
     const val recyclerAnimator = "3.0.0"
     const val materialComponent = "1.1.0-alpha07"
-    const val dagger = "2.23.2"
+    const val dagger = "2.24"
     const val stetho = "1.5.1"
     const val timber = "4.7.1"
     const val navigation = "2.1.0-alpha06"
@@ -36,7 +36,7 @@ object ERewarderVersion {
 }
 
 object ERewarderCoreDependencies {
-    const val packageName = "com.gokada.ng"
+    const val applicationId = "com.ayokunlepaul.erewarder"
 
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${ERewarderVersion.kotlin}"
     const val coreKtx = "androidx.core:core-ktx:${ERewarderVersion.coreKtx}"
@@ -54,6 +54,7 @@ object ERewarderViewDependencies {
     const val materialComponent = "com.google.android.material:material:${ERewarderVersion.materialComponent}"
     const val rxAnimation = "com.mikhaellopez:rxanimation:${ERewarderVersion.rxAnimation}"
     const val shimmerLayout = "com.facebook.shimmer:shimmer:${ERewarderVersion.shimmerLayout}"
+    const val optView = "com.chaos.view:pinview:${ERewarderVersion.otpView}"
     const val fresco = "com.facebook.fresco:fresco:${ERewarderVersion.fresco}"
 }
 
@@ -74,7 +75,6 @@ object ERewarderCacheDependencies {
 
 object ERewarderUtilityDependencies {
     const val timber = "com.jakewharton.timber:timber:${ERewarderVersion.timber}"
-    const val optView = "com.chaos.view:pinview:${ERewarderVersion.otpView}"
     const val recyclerAnimator = "jp.wasabeef:recyclerview-animators:${ERewarderVersion.recyclerAnimator}"
     const val overscrollDecor = "me.everything:overscroll-decor-android:${ERewarderVersion.overscrollDecor}"
 }
