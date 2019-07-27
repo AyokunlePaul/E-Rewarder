@@ -21,7 +21,7 @@ object ERewarderVersion {
     const val okhttp = "3.12.0"
     const val retrofit = "2.6.0"
     const val recyclerAnimator = "3.0.0"
-    const val materialComponent = "1.1.0-alpha07"
+    const val materialComponent = "1.1.0-alpha08"
     const val dagger = "2.24"
     const val stetho = "1.5.1"
     const val timber = "4.7.1"
