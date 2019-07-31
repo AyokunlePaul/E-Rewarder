@@ -3,6 +3,7 @@ package com.ayokunlepaul.erewarder.di.modules.presentation
 import com.ayokunlepaul.erewarder.base.BaseViewModel
 import com.ayokunlepaul.erewarder.di.keys.ERewarderViewModelKey
 import com.ayokunlepaul.erewarder.di.scopes.PerFragment
+import com.ayokunlepaul.erewarder.presentation.birthday.NotBirthdayFragmentViewModel
 import com.ayokunlepaul.erewarder.presentation.login.LoginFragmentViewModel
 import com.ayokunlepaul.erewarder.presentation.reward.RewardFragmentViewModel
 import dagger.Binds
@@ -26,5 +27,13 @@ abstract class ERewarderFragmentViewModelModule {
     @ERewarderViewModelKey(RewardFragmentViewModel::class)
     abstract fun bindRewardFragmentViewModel (
         viewModel: RewardFragmentViewModel
+    ): BaseViewModel
+
+    @Binds
+    @IntoMap
+    @PerFragment
+    @ERewarderViewModelKey(NotBirthdayFragmentViewModel::class)
+    abstract fun bindNotBirthdayFragmentViewModel(
+        viewModel: NotBirthdayFragmentViewModel
     ): BaseViewModel
 }

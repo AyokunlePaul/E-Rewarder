@@ -18,8 +18,31 @@
             app:argType="com.ayokunlepaul.erewarder.models.CustomerModel"/>
     </fragment>
 
+    <fragment android:id="@+id/fragment_not_birthday"
+        android:name="com.ayokunlepaul.erewarder.presentation.birthday.NotBirthdayFragment"
+        tools:layout="@layout/fragment_not_birthday">
+        <argument android:name="Customer"
+            app:argType="com.ayokunlepaul.erewarder.models.CustomerModel"/>
+    </fragment>
+
     <action android:id="@+id/action_goto_reward_fragment"
+        app:popUpTo="@id/fragment_reward"
         app:destination="@id/fragment_reward"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+
+    <action android:id="@+id/action_goto_login_fragment"
+        app:popUpTo="@id/fragment_login"
+        app:destination="@id/fragment_login"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+
+    <action android:id="@+id/action_goto_birthday_doesnt_qualify_fragment"
+        app:destination="@id/fragment_not_birthday"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"

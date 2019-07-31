@@ -23,7 +23,7 @@
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:gravity="center"
-            android:text="@string/thank_you_for_your_continuous_patronage_we_regret_to_inform_you_that_you_do_not_qualify_for_a_voucher_now_but_you_are_well_on_your_way_please_check_your_progress_details_below"
+            android:text="@string/doesnt_qualify"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

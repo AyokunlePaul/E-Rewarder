@@ -5,21 +5,22 @@
 
     <data>
         <variable
-            name="ViewModel"
-            type="com.ayokunlepaul.erewarder.presentation.reward.RewardFragmentViewModel" />
+            name="Customer"
+            type="com.ayokunlepaul.erewarder.models.CustomerModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="4dp"
-        app:cardElevation="10dp"
+        app:cardElevation="20dp"
         app:contentPadding="10dp"
-        app:cardBackgroundColor="#9005A4E2"
+        app:cardBackgroundColor="@color/colorPrimary"
         app:rippleColor="@android:color/darker_gray">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/colorPrimary"
             android:layout_height="wrap_content">
 
             <TextView
@@ -28,21 +29,21 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:gravity="center"
-                android:text='@{"Amount: " + ViewModel.customer.getVoucherAmount}'
-                android:textColor="@android:color/black"
+                android:text='@{"Amount: " + "₦" + Customer.getVoucherAmount}'
+                android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Amount: 1000" />
+                tools:text="Amount: ₦1000" />
 
             <TextView
                 android:id="@+id/voucher_validity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:gravity="center"
-                android:text='@{"Valid for " + ViewModel.customer.voucherValidity + ViewModel.customer.voucherValidity > 1 ? " days" : " day"}'
+                android:text='@{"Valid for " + Customer.voucherValidity + (Customer.voucherValidity > 1 ? " days" : " day")}'
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/voucher_amount"
@@ -54,8 +55,8 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:gravity="center"
-                android:text='@{ViewModel.customer.firstName + " " + ViewModel.customer.lastName}'
-                android:textColor="@android:color/black"
+                android:text='@{Customer.firstName + " " + Customer.lastName}'
+                android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/voucher_validity"
