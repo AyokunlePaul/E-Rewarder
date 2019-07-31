@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ViewModel"
+            type="com.ayokunlepaul.erewarder.presentation.reward.RewardFragmentViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="10dp"
+        app:contentPadding="10dp"
+        app:cardBackgroundColor="#9005A4E2"
+        app:rippleColor="@android:color/darker_gray">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/voucher_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center"
+                android:text='@{"Amount: " + ViewModel.customer.getVoucherAmount}'
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Amount: 1000" />
+
+            <TextView
+                android:id="@+id/voucher_validity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:text='@{"Valid for " + ViewModel.customer.voucherValidity + ViewModel.customer.voucherValidity > 1 ? " days" : " day"}'
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/voucher_amount"
+                tools:text="Valid for 1 day" />
+
+            <TextView
+                android:id="@+id/customer_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center"
+                android:text='@{ViewModel.customer.firstName + " " + ViewModel.customer.lastName}'
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/voucher_validity"
+                tools:text="OLADOKUN AYOKUNLE PAUL" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

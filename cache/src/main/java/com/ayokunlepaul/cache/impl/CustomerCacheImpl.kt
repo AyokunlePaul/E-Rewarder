@@ -5,6 +5,8 @@ import com.ayokunlepaul.cache.room.daos.CustomerDao
 import com.ayokunlepaul.repository.cache.ICustomerCache
 import com.ayokunlepaul.repository.models.CustomerEntity
 import io.reactivex.Completable
+import io.reactivex.Observable
+import io.reactivex.Single
 import javax.inject.Inject
 
 class CustomerCacheImpl @Inject constructor(
@@ -12,12 +14,16 @@ class CustomerCacheImpl @Inject constructor(
     private val customerCacheModelMapper: CustomerCacheModelMapper
 ): ICustomerCache {
 
-    override fun saveCustomer(customerEntity: CustomerEntity): Completable = customerDao.saveCustomer(
-        customerCacheModelMapper.mapToCache(customerEntity)
-    )
+    override fun saveCustomer(customerEntity: CustomerEntity): Completable = Completable.fromAction {
+        customerDao.saveCustomer(
+            customerCacheModelMapper.mapToCache(customerEntity)
+        )
+    }
 
-    override fun getCustomer(phoneNumber: String, password: String): CustomerEntity? = customerDao.getCustomer(
-        phoneNumber = phoneNumber,
-        password = password
-    )?.let { customerCacheModelMapper.mapToRepository(it) }
+    override fun getCustomer(phoneNumber: String, password: String): Single<List<CustomerEntity>> = Single.just(
+        customerDao.getCustomer(
+            phoneNumber = phoneNumber,
+            password = password
+        ).map { customerCacheModelMapper.mapToRepository(it) }
+    )
 }

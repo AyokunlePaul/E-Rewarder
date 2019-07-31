@@ -12,5 +12,6 @@ data class CustomerCacheModel (
     val phoneNumber: String,
     val password: String,
     val dateOfBirth: Int,
-    val monthOfBirth: Int
+    val monthOfBirth: Int,
+    val amountSpent: Long
 )

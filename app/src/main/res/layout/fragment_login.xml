@@ -27,24 +27,27 @@
             app:layout_constraintGuide_end="30dp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="?android:attr/actionBarSize"
-            android:layout_marginTop="200dp"
             android:id="@+id/phone_number_input_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:endIconMode="clear_text"
+            android:layout_width="0dp"
+            android:layout_height="?android:attr/actionBarSize"
             android:hint="@string/phone_number"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:endIconMode="clear_text"
+            app:layout_constraintBottom_toTopOf="@+id/password_input_layout"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:inputType="phone"
-                android:text="@={ViewModel.customer.phoneNumber}"
+                android:id="@+id/phone_number"
                 android:padding="10dp"
-                android:textColor="@android:color/black"
-                android:layout_height="match_parent" />
+                android:text="@={ViewModel.phoneNumber}"
+                android:textColor="@android:color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,20 +58,24 @@
             android:layout_height="?android:attr/actionBarSize"
             android:layout_marginTop="24dp"
             android:hint="@string/password"
-            app:endIconMode="password_toggle"
             app:counterEnabled="true"
             app:counterMaxLength="10"
+            app:counterOverflowTextColor="@android:color/holo_red_dark"
             app:counterTextColor="@android:color/black"
+            app:endIconMode="password_toggle"
+            app:layout_constraintBottom_toTopOf="@+id/materialButton2"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/phone_number_input_layout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={ViewModel.customer.password}"
                 android:inputType="phone"
                 android:padding="10dp"
+                android:text="@={ViewModel.password}"
                 android:textColor="@android:color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -79,29 +86,34 @@
             android:layout_width="0dp"
             android:layout_height="?android:attr/actionBarSize"
             android:layout_marginTop="32dp"
+            android:onClick="@{() -> ViewModel.loginCustomerIn()}"
             android:text="@string/log_in"
             android:textAllCaps="false"
             android:textSize="14sp"
-            android:onClick="@{() -> ViewModel.loginCustomerIn()}"
-            app:rippleColor="@android:color/white"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/password_input_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/password_input_layout"
+            app:rippleColor="@android:color/white" />
 
         <com.google.android.material.button.MaterialButton
-            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:id="@+id/textView"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="0dp"
             android:layout_height="?android:attr/actionBarSize"
             android:layout_marginTop="24dp"
             android:gravity="end|center_vertical"
             android:padding="10dp"
-            android:textAllCaps="false"
-            app:rippleColor="@android:color/darker_gray"
-            android:textColor="@android:color/darker_gray"
+            app:layout_constraintVertical_chainStyle="packed"
             android:text="@string/new_customer_sign_up_here"
+            android:textAllCaps="false"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/materialButton2" />
+            app:layout_constraintTop_toBottomOf="@+id/materialButton2"
+            app:rippleColor="@android:color/darker_gray" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

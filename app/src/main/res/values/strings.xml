@@ -4,4 +4,7 @@
     <string name="password">Password</string>
     <string name="new_customer_sign_up_here">New customer? Sign up here</string>
     <string name="log_in">Log In</string>
+    <string name="redeem">Redeem</string>
+    <string name="as_a_reward_for_your_loyalty_we_have_gifted_you_with_a_voucher">As a reward for your loyalty, we have gifted you with a voucher</string>
+    <string name="thank_you_for_your_continuous_patronage_we_regret_to_inform_you_that_you_do_not_qualify_for_a_voucher_now_but_you_are_well_on_your_way_please_check_your_progress_details_below">Thank you for your continuous patronage. We regret to inform you that you do not qualify for a voucher now. But you are well on your way. Please check your progress details below.</string>
 </resources>

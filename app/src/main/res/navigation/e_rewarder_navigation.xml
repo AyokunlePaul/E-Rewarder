@@ -10,4 +10,19 @@
         tools:layout="@layout/fragment_login"
         android:name="com.ayokunlepaul.erewarder.presentation.login.LoginFragment"/>
 
+    <fragment
+        android:id="@+id/fragment_reward"
+        tools:layout="@layout/fragment_reward"
+        android:name="com.ayokunlepaul.erewarder.presentation.reward.RewardFragment">
+        <argument android:name="Customer"
+            app:argType="com.ayokunlepaul.erewarder.models.CustomerModel"/>
+    </fragment>
+
+    <action android:id="@+id/action_goto_reward_fragment"
+        app:destination="@id/fragment_reward"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+
 </navigation>
