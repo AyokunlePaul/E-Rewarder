@@ -32,6 +32,7 @@ abstract class BaseFragment<in D: ViewDataBinding, out V: BaseViewModel>: Dagger
         binding.apply {
             setVariable(getBindingVariable(), getViewModel())
             executePendingBindings()
+            lifecycleOwner = this@BaseFragment
         }
         getLayoutBinding(binding)
         return binding.root
@@ -45,5 +46,12 @@ abstract class BaseFragment<in D: ViewDataBinding, out V: BaseViewModel>: Dagger
                 is ERewarderNavigationCommand.To -> findNavController().navigate(navCommand.direction)
             }
         })
+    }
+
+    protected fun navigate(command: ERewarderNavigationCommand) {
+        when (command) {
+            is ERewarderNavigationCommand.To -> getViewModel().navigate(command)
+            is ERewarderNavigationCommand.Back -> findNavController().navigateUp()
+        }
     }
 }

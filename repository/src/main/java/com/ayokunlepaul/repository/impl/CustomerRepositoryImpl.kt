@@ -13,16 +13,16 @@ class CustomerRepositoryImpl @Inject constructor(
     private val customerEntityModelMapper: CustomerEntityModelMapper
 ): ICustomerRepository {
 
-    override fun loginCustomerIn(phoneNumber: String, password: String): Single<ResponseModel<Customer>> = customerCache.getCustomer(
-        phoneNumber = phoneNumber,
-        password = password
+    override fun loginCustomerIn(phoneNumber: String, password: String): Single<ResponseModel<Customer>> = Single.just(
+        customerCache.getCustomer(
+            phoneNumber = phoneNumber,
+            password = password
+        )
     ).map {
-        if (it.isEmpty()) ResponseModel(
-            successful = false,
-            message = "User doesn't exist"
-        ) else ResponseModel(
-            successful = true,
-            data = customerEntityModelMapper.mapToDomain(it[0])
+        ResponseModel(
+            successful = it.success,
+            message = it.message,
+            data = it.data?.let { customerEntity -> customerEntityModelMapper.mapToDomain(customerEntity) }
         )
     }
 }

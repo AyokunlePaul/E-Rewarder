@@ -16,14 +16,14 @@ class LoginFragmentViewModel @Inject constructor(
     private val customerModelMapper: CustomerModelMapper
 ): BaseViewModel() {
 
-    var phoneNumber: String = ""
-    var password: String = ""
+    var phoneNumber = MutableLiveData<String>().apply { value = "" }
+    var password = MutableLiveData<String>().apply { value = "" }
 
     private val _logCustomerInState = MutableLiveData<ERewarderResource<CustomerModel>>()
     val logCustomerInState = _logCustomerInState as LiveData<ERewarderResource<CustomerModel>>
 
     fun loginCustomerIn() {
-        if (TextUtils.isEmpty(phoneNumber)) {
+        if (TextUtils.isEmpty(phoneNumber.value)) {
             _logCustomerInState.postValue(
                 ERewarderResource.failed(
                     "Phone number is empty"
@@ -32,7 +32,7 @@ class LoginFragmentViewModel @Inject constructor(
             return
         }
 
-        if (!Patterns.PHONE.matcher(phoneNumber).matches()) {
+        if (!Patterns.PHONE.matcher(phoneNumber.value).matches()) {
             _logCustomerInState.postValue(
                 ERewarderResource.failed(
                     "Invalid phone number input"
@@ -41,7 +41,7 @@ class LoginFragmentViewModel @Inject constructor(
             return
         }
 
-        if (TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(password.value)) {
             _logCustomerInState.postValue(
                 ERewarderResource.failed(
                     "Password field is empty"
@@ -51,8 +51,8 @@ class LoginFragmentViewModel @Inject constructor(
         }
 
         authenticateUser.executeUseCaseAndPerformAction(AuthenticateUser.AuthenticationParam(
-            phoneNumber = phoneNumber,
-            password = password
+            phoneNumber = phoneNumber.value!!,
+            password = password.value!!
         ), {
             _logCustomerInState.postValue(
                 if (it.successful) ERewarderResource.success(

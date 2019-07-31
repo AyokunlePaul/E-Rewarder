@@ -33,4 +33,15 @@ data class CustomerModel (
             else -> 1_000
         }
     }
+    val amountToNextMilestone: Long get() {
+        return when (amountSpent) {
+            in 0 until 1_000 -> 1000 - amountSpent
+            in 1_000 until 5_000 -> 5000 - amountSpent
+            else -> 10000 - amountSpent
+        }
+    }
+
+    fun isMyBirthday(currentDate: Int, currentMonth: Int): Boolean {
+        return dateOfBirth == currentDate && monthOfBirth == currentMonth
+    }
 }
