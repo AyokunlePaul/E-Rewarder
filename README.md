@@ -6,10 +6,6 @@ E-Rewarder is an Android application that enables customers to view their loyalt
 
 Clone the project and run on [Android Studio](https://developer.android.com/studio/preview) 3.5.
 
-```bash
-pip install foobar
-```
-
 ## Requirement
 
 ```
