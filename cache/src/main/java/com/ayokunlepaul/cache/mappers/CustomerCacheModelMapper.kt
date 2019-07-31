@@ -16,7 +16,8 @@ class CustomerCacheModelMapper @Inject constructor(
         dateOfBirth = repository.dateOfBirth,
         emailAddress = repository.emailAddress,
         monthOfBirth = repository.monthOfBirth,
-        password = repository.password
+        password = repository.password,
+        amountSpent = repository.amountSpent
     )
 
     override fun mapToRepository(cache: CustomerCacheModel): CustomerEntity = CustomerEntity(
@@ -27,6 +28,7 @@ class CustomerCacheModelMapper @Inject constructor(
         dateOfBirth = cache.dateOfBirth,
         monthOfBirth = cache.monthOfBirth,
         emailAddress = safeString(cache.emailAddress),
-        password = cache.password
+        password = cache.password,
+        amountSpent = cache.amountSpent
     )
 }

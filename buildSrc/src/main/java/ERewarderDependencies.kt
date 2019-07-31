@@ -33,6 +33,11 @@ object ERewarderVersion {
     const val fresco = "2.0.0"
     const val multidex = "2.0.1"
     const val overscrollDecor = "1.0.4"
+    const val assertJ = "3.8.0"
+    const val mockito = "1.5.0"
+    const val robolectric = "4.3"
+    const val androidTest = "1.1.0"
+    const val androidExtTest = "1.1.1"
 }
 
 object ERewarderCoreDependencies {
@@ -82,4 +87,20 @@ object ERewarderUtilityDependencies {
 object ERewarderAsyncDependencies {
     const val rxJava = "io.reactivex.rxjava2:rxjava:${ERewarderVersion.rxJava}"
     const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${ERewarderVersion.rxAndroid}"
+}
+
+object ERewarderTestDependencies {
+    const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    const val junit = "junit:junit:${ERewarderVersion.junit}"
+    const val kotlinJunit = "org.jetbrains.kotlin:kotlin-test-junit:${ERewarderVersion.kotlin}"
+    const val supportTestRunner = "androidx.test:runner:${ERewarderVersion.runner}"
+    const val espresso = "androidx.test.espresso:espresso-core:${ERewarderVersion.espresso}"
+    const val assertJ = "org.assertj:assertj-core:${ERewarderVersion.assertJ}"
+    const val mockito = "com.nhaarman:mockito-kotlin:${ERewarderVersion.mockito}"
+    const val robolectric = "org.robolectric:robolectric:${ERewarderVersion.robolectric}"
+    const val roomTesting = "androidx.room:room-testing:${ERewarderVersion.room}"
+    const val testRunner = "androidx.test:runner:${ERewarderVersion.androidTest}"
+    const val testRules = "androidx.test:rules:${ERewarderVersion.androidTest}"
+    const val archTesting = "androidx.arch.core:core-testing:${ERewarderVersion.lifecycle}"
+    const val androidExtTesting = "androidx.test.ext:junit:${ERewarderVersion.androidExtTest}"
 }

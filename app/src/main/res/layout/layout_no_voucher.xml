@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ViewModel"
+            type="com.ayokunlepaul.erewarder.presentation.reward.RewardFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="50dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/thank_you_for_your_continuous_patronage_we_regret_to_inform_you_that_you_do_not_qualify_for_a_voucher_now_but_you_are_well_on_your_way_please_check_your_progress_details_below"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text='@{"Amount spent: " + String.valueOf(ViewModel.customer.amountSpent)}'
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:text="Amount spent: 100000" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -4,6 +4,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion ERewarderVersion.compileSdkVersion
+    testOptions.unitTests.includeAndroidResources = true
 
     defaultConfig {
         minSdkVersion ERewarderVersion.minSdkVersion
@@ -19,7 +20,7 @@ android {
             }
         }
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner ERewarderTestDependencies.testInstrumentationRunner
         consumerProguardFiles 'consumer-rules.pro'
     }
 
@@ -32,6 +33,9 @@ android {
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
+    }
+    packagingOptions {
+        exclude 'licenses/javolution.license.TXT'
     }
 }
 
@@ -52,5 +56,22 @@ dependencies {
     kapt (
             ERewarderCacheDependencies.roomCompiler,
             ERewarderDIDependencies.javaxAnnotation
+    )
+
+    testImplementation (
+            ERewarderTestDependencies.junit,
+            ERewarderTestDependencies.kotlinJunit,
+            ERewarderTestDependencies.mockito,
+            ERewarderTestDependencies.assertJ,
+            ERewarderTestDependencies.robolectric,
+            ERewarderTestDependencies.roomTesting,
+            ERewarderTestDependencies.archTesting
+    )
+
+    androidTestImplementation (
+            ERewarderTestDependencies.testRunner,
+            ERewarderTestDependencies.testRules,
+            ERewarderTestDependencies.androidExtTesting,
+            ERewarderTestDependencies.robolectric
     )
 }
